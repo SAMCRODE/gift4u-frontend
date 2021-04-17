@@ -1,13 +1,27 @@
-.container {
-  
-    margin: 100px auto;
+.page {
+  background: url("../../assets/background.svg") no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+
+  .container {
+    padding: 100px auto;
     display: flex;
-    flex-direction: column;
+
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  
-      ul{
-        list-style: none;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      margin: 10px 20px;
+
+      li {
+        margin: 10px;
       }
+    }
   }
-  
+}
