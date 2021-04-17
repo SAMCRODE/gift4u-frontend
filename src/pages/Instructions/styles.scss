@@ -1,0 +1,46 @@
+.instruction-background {
+  background: url("../../assets/instructions-background.jpg") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.instruction-container {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instruction-card {
+  width: 900px;
+  background: #ffffff;
+  border: 1px solid #49b6ff;
+  box-sizing: border-box;
+  box-shadow: 6px 8px 4px rgb(73 182 255 / 30%);
+  border-radius: 5px;
+  padding: 30px;
+  margin-bottom: 50px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+    
+
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    padding-left: 40px;
+  }
+
+  div {
+      display: flex;
+      justify-content: center;
+  }
+}
