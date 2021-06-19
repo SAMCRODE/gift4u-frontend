@@ -1,97 +1,60 @@
+import { useEffect, useState, useRef } from "react";
+import api from "../../services/api";
 import Card from "../../components/Card";
 import "./styles.scss";
 
-const produtos = [
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 1,
-  },
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 2,
-  },
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 3,
-  },
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 4,
-  },
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 5,
-  },
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 6,
-  },
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 7,
-  },
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 8,
-  },
-  {
-    imagem: "https://www.techinn.com/f/13776/137769821/sony-ps5.jpg",
-    titulo: "Sony Playstation 5",
-    descricao:
-      "Porque eu quero muito zerar God Of War. Oloco, sute lkoe cousa joulssss",
-    valor: 2777,
-    id: 9,
-  },
-];
-
 const Home = () => {
+  const [gifts, setGifts] = useState([]);
+  const [page, setPage] = useState(1);
+  const loaderRef = useRef(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "20px",
+      threshold: 1.0,
+    };
+
+    const observer = new IntersectionObserver((entities) => {
+      const target = entities[0];
+
+      if (target.isIntersecting) {
+        setPage((old) => old + 1);
+      }
+    }, options);
+
+    if (loaderRef.current) {
+      observer.observe(loaderRef.current);
+    }
+  }, []);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const { data } = await api.get(`gift/collection/${page}`);
+        setGifts([...gifts, ...data.gifts]);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getProducts();
+  }, [page]);
+
   return (
     <div className="page">
       <div className="container">
         <ul>
-          {produtos.map((produto) => (
-            <li key={produto.id}>
+          {gifts.map((gift) => (
+            <li key={gift.ID}>
               <Card
-                imagem={produto.imagem}
-                titulo={produto.titulo}
-                descricao={produto.descricao}
-                valor={produto.valor}
+                titulo={gift.Name}
+                descricao={gift.Description}
+                valor={gift.Value}
               />
             </li>
           ))}
         </ul>
+        <p ref={loaderRef}>Finish</p>
       </div>
     </div>
   );
