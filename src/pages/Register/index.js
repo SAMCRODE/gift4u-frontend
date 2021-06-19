@@ -2,6 +2,7 @@ import ButtonSucess from "../../components/Button/Sucess";
 import api from "../../services/api";
 import React, { useState } from "react";
 import "./styles.scss";
+import ImageDefault from "../../assets/default-image.png";
 
 const Register = () => {
 
@@ -57,7 +58,7 @@ const Register = () => {
           </div>
           <div>
             <label>Imagem do produto</label>
-            <img id="output" alt="Imagem do produto" />
+            <img src={ImageDefault} id="output" />
 
             {<div className="button-upload">
               Escolher imagem
