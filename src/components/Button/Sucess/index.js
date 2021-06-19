@@ -1,9 +1,9 @@
 import React from "react";
 import "./styles.scss";
 
-const ButtonSucess = ({ texto }) => (
+const ButtonSucess = ({ texto, click }) => (
   <div className="button-sucess">
-    <button>{texto}</button>
+    <button onClick={click}>{texto}</button>
   </div>
 );
 
