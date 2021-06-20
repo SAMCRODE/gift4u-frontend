@@ -6,18 +6,19 @@
   box-shadow: 6px 8px 4px rgba(73, 182, 255, 0.3);
   border-radius: 5px;
 
-  padding: 5px;
+  padding: 10px;
 
   width: 550px;
-  height: 200px;
+  max-height: 250px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
 
   .content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
     img {
       max-width: 130px;
@@ -62,5 +63,32 @@
         color: white;
       }
     }
+  }
+  .pixDiv {
+    width: 100%;
+
+    margin-top: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+    padding: 5px;
+
+
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  #pix {
+    color: #49b6ff;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 600;
+
+    margin-left: 8px;
+    padding: 2px;
+
+    background-color: white;
   }
 }

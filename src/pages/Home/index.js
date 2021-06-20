@@ -34,7 +34,7 @@ const Home = () => {
         const { data } = await api.get(`gift/collection/${page}`);
         setGifts([...gifts, ...data.gifts]);
       } catch (err) {
-        console.error(err);
+        console.error('ERRO!');
       }
     };
     getProducts();
@@ -47,6 +47,7 @@ const Home = () => {
           {gifts.map((gift) => (
             <li key={gift.ID}>
               <Card
+                chavePix={gift.PixCode}
                 titulo={gift.Name}
                 descricao={gift.Description}
                 valor={gift.Value}
