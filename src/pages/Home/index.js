@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import api from "../../services/api";
 import Card from "../../components/Card";
 import "./styles.scss";
@@ -6,27 +6,6 @@ import "./styles.scss";
 const Home = () => {
   const [gifts, setGifts] = useState([]);
   const [page, setPage] = useState(1);
-  const loaderRef = useRef(null);
-
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "20px",
-      threshold: 1.0,
-    };
-
-    const observer = new IntersectionObserver((entities) => {
-      const target = entities[0];
-
-      if (target.isIntersecting) {
-        setPage((old) => old + 1);
-      }
-    }, options);
-
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-  }, []);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -38,7 +17,7 @@ const Home = () => {
       }
     };
     getProducts();
-  }, [page]);
+  }, []);
 
   return (
     <div className="page">
@@ -50,11 +29,12 @@ const Home = () => {
                 titulo={gift.Name}
                 descricao={gift.Description}
                 valor={gift.Value}
+                valorPix={gift.PixCode}
               />
             </li>
           ))}
         </ul>
-        <p ref={loaderRef}>Finish</p>
+        <p>nothing...</p>
       </div>
     </div>
   );
