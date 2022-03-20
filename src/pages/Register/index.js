@@ -5,21 +5,18 @@ import "./styles.scss";
 import ImageDefault from "../../assets/default-image.png";
 
 const Register = () => {
-
   const [product, setProduct] = useState("");
 
   const submitForm = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await api.post('gift/create', product)
+      const { data } = await api.post("gift/create", product);
       console.log(data);
       console.log(product);
-
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-
   };
 
   const loadFile = (event) => {
@@ -38,36 +35,52 @@ const Register = () => {
         <form>
           <div>
             <label>Nome do produto</label>
-            <input type="text" onChange={(e) =>
-              setProduct({ ...product, Name: e.target.value })
-            } />
+            <input
+              type="text"
+              onChange={(e) => setProduct({ ...product, Name: e.target.value })}
+            />
             <label>Descrição</label>
-            <textarea type="text" onChange={(e) =>
-              setProduct({ ...product, Description: e.target.value })
-            } />
+            <textarea
+              type="text"
+              onChange={(e) =>
+                setProduct({ ...product, Description: e.target.value })
+              }
+            />
             <label> Valor</label>
-            <input id="valor" type="number" onChange={(e) =>
-              setProduct({ ...product, Value: parseFloat(e.target.value) })
-            } />
+            <input
+              id="valor"
+              type="number"
+              onChange={(e) =>
+                setProduct({ ...product, Value: parseFloat(e.target.value) })
+              }
+            />
             <label>Chave PIX</label>
-            <input type="text" onChange={(e) =>
-              setProduct({ ...product, PixCode: e.target.value })
-            } />
+            <input
+              type="text"
+              onChange={(e) =>
+                setProduct({ ...product, PixCode: e.target.value })
+              }
+            />
 
-            <ButtonSucess texto="Cadastrar e tentar a sorte =)" click={submitForm} />
+            <ButtonSucess
+              texto="Cadastrar e tentar a sorte =)"
+              click={submitForm}
+            />
           </div>
           <div>
             <label>Imagem do produto</label>
-            <img src={ImageDefault} id="output" />
+            <img alt="Imagem padrão" src={ImageDefault} id="output" />
 
-            {<div className="button-upload">
-              Escolher imagem
-              <input
-                type="file"
-                className="upload"
-                onChange={(event) => loadFile(event)}
-              />
-            </div>}
+            {
+              <div className="button-upload">
+                Escolher imagem
+                <input
+                  type="file"
+                  className="upload"
+                  onChange={(event) => loadFile(event)}
+                />
+              </div>
+            }
           </div>
         </form>
       </div>

@@ -25,3 +25,9 @@
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .page li {
+    width: 100%;
+  }
+}
