@@ -38,7 +38,7 @@ const Home = () => {
       }
     };
     getProducts();
-  }, [page]);
+  }, [page, gifts]);
 
   return (
     <div className="page">
