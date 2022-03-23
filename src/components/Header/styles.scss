@@ -17,3 +17,22 @@
     margin-right: 10%;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .header {
+    .buttons {
+      display: none !important;
+    }
+    a {
+      img {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .toggle {
+    display: none;
+  }
+}
