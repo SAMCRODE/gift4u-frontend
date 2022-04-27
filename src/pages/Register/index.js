@@ -4,16 +4,24 @@ import React, { useState } from "react";
 import "./styles.scss";
 import ImageDefault from "../../assets/default-image.png";
 
+import { UploadApiEndpoint } from "../../config";
+import axios from "axios";
+
 const Register = () => {
   const [product, setProduct] = useState("");
+  const [image, setImage] = useState();
 
+  const formData = new FormData();
+  if (image) {
+    formData.append("img", image, image.name);
+  }
   const submitForm = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await api.post("gift/create", product);
-      console.log(data);
-      console.log(product);
+      await api.post("gift/create", product);
+      console.log(image);
+      await axios.post(UploadApiEndpoint, formData);
     } catch (error) {
       console.error(error);
     }
@@ -26,6 +34,9 @@ const Register = () => {
       output.src = reader.result;
     };
     reader.readAsDataURL(event.target.files[0]);
+
+    const imagem = event.target.files[0];
+    setImage(imagem);
   };
 
   return (
