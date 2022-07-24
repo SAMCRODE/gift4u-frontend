@@ -1,18 +1,20 @@
-.instruction-background {
+import styled from "styled-components";
+
+export const InstructionBackground = styled.div`
   background: url("../../assets/instructions-background.jpg") no-repeat;
   background-attachment: fixed;
   background-size: cover;
-}
+`;
 
-.instruction-container {
+export const InstructionContainer = styled.div`
   padding: 100px 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-}
+`;
 
-.instruction-card {
+export const InstructionCard = styled.div`
   width: 900px;
   background: #ffffff;
   border: 1px solid #49b6ff;
@@ -25,7 +27,6 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-    
 
   h1 {
     margin-bottom: 40px;
@@ -40,7 +41,7 @@
   }
 
   div {
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
   }
-}
+`;
