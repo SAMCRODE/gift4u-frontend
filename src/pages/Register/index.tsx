@@ -1,47 +1,47 @@
-import ButtonSucess from "../../components/Button/Sucess";
-import api from "../../services/api";
+import ButtonSucess from "../../components/Button/Success";
+// import api from "../../services/api";
 import React, { useState } from "react";
-import "./styles.scss";
+import { PageRegister, FormCard, ButtonUpload } from "./styles";
 import ImageDefault from "../../assets/default-image.png";
+import { GiftItem } from "../../models/Gift";
 
-import { UploadApiEndpoint } from "../../config";
-import axios from "axios";
+// import { UploadApiEndpoint } from "../../config";
 
 const Register = () => {
-  const [product, setProduct] = useState("");
+  const [product, setProduct] = useState<GiftItem[]>({});
   const [image, setImage] = useState();
 
-  const formData = new FormData();
-  if (image) {
-    formData.append("img", image, image.name);
-  }
-  const submitForm = async (event) => {
-    event.preventDefault();
+  // const formData = new FormData();
+  // if (image) {
+  //   formData.append("img", image, image.name);
+  // }
+  // const submitForm = async (event) => {
+  //   event.preventDefault();
 
-    try {
-      await api.post("gift/create", product);
-      console.log(image);
-      await axios.post(UploadApiEndpoint, formData);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //   try {
+  //     await api.post("gift/create", product);
+  //     console.log(image);
+  //     await axios.post(UploadApiEndpoint, formData);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  const loadFile = (event) => {
-    var reader = new FileReader();
-    reader.onload = function () {
-      var output = document.getElementById("output");
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
+  // const loadFile = (event) => {
+  //   var reader = new FileReader();
+  //   reader.onload = function () {
+  //     var output = document.getElementById("output");
+  //     output.src = reader.result;
+  //   };
+  //   reader.readAsDataURL(event.target.files[0]);
 
-    const imagem = event.target.files[0];
-    setImage(imagem);
-  };
+  //   const imagem = event.target.files[0];
+  //   setImage(imagem);
+  // };
 
   return (
-    <div className="page-register">
-      <div className="form-card">
+    <PageRegister>
+      <FormCard>
         <h1>Cadastre o seu presente</h1>
         <form>
           <div>
@@ -83,19 +83,19 @@ const Register = () => {
             <img alt="Imagem padrão" src={ImageDefault} id="output" />
 
             {
-              <div className="button-upload">
+              <ButtonUpload>
                 Escolher imagem
                 <input
                   type="file"
                   className="upload"
                   onChange={(event) => loadFile(event)}
                 />
-              </div>
+              </ButtonUpload>
             }
           </div>
         </form>
-      </div>
-    </div>
+      </FormCard>
+    </PageRegister>
   );
 };
 

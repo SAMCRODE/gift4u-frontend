@@ -1,11 +1,15 @@
 import React from "react";
-import "./styles.scss";
-import Example from "../../assets/instructions-example.png";
+import {
+  InstructionBackground,
+  InstructionContainer,
+  InstructionCard,
+} from "./styles";
+// import Example from "../../assets/instructions-example.png";
 
 const Instructions = () => (
-  <div className="instruction-background">
-    <div className="instruction-container">
-      <div className="instruction-card">
+  <InstructionBackground>
+    <InstructionContainer>
+      <InstructionCard>
         <h1>Como posso ganhar um presente?</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget
@@ -23,14 +27,14 @@ const Instructions = () => (
           <li>Chave pix para receber o valor do produto</li>
           <li>Talvez QR code</li>
         </ul>
-      </div>
+      </InstructionCard>
       <div className="instruction-card">
         <div>
-          <img src={Example} alt="Exemplo" />
+          {/* <img src={Example} alt="Exemplo" /> */}
         </div>
       </div>
-    </div>
-  </div>
+    </InstructionContainer>
+  </InstructionBackground>
 );
 
 export default Instructions;
