@@ -1,4 +1,6 @@
-.button-sucess {
+import styled from "styled-components";
+
+export const Success = styled.div`
   button {
     border: none;
     border-radius: 5px;
@@ -16,4 +18,4 @@
     background-color: #5dca46;
     color: #fff;
   }
-}
+`;
