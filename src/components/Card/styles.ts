@@ -12,6 +12,7 @@ export const Container = styled.div`
   height: 380px;
 
   display: flex;
+  justify-content: space-between;
   align-items: center;
 `;
 
@@ -20,7 +21,7 @@ export const Content = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  height: 100%;
+
   flex-direction: column;
 
   img {
