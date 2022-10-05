@@ -12,12 +12,9 @@ const Instructions = () => (
       <InstructionCard>
         <h1>Como posso ganhar um presente?</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget
-          laoreet nibh. Suspendisse ut consequat quam. Maecenas feugiat sit amet
-          eros in cursus. Proin lacinia nisi nec tristique finibus. Nunc
-          hendrerit felis vel felis euismod consectetur. Aliquam vel justo erat.
-          Pellentesque egestas ex ut fermentum maximus. Suspendisse potenti.
-          Curabitur vel consequat mi.
+          Para cadastrar um item que deseja receber de presente do destino é necessário registrar algumas informações do produto no site. Assim, algum usuário aleatoriamente rico pode te presentear e fazer o seu dia mais feliz ou não. É totalmente possível que seu presente permaneça no nosso banco de dados pelo resto da eternindade sem ser notado e pago.
+
+          Todavia, recomendamos cadastrar pois nunca se sabe o que uma pessoa entediada e com muito dinheiro pode fazer, para isso precisa informar:
         </p>
 
         <ul>
@@ -25,7 +22,6 @@ const Instructions = () => (
           <li>Motivo</li>
           <li>Valor do produto</li>
           <li>Chave pix para receber o valor do produto</li>
-          <li>Talvez QR code</li>
         </ul>
       </InstructionCard>
       <div className="instruction-card">

@@ -2,7 +2,7 @@ html,
 body {
   font-family: "Poppins", sans-serif;
   list-style: none;
- 
+  background: linear-gradient(to left, rgb(73, 182, 255), rgb(220, 181, 239));
 }
 a {
   color: inherit;

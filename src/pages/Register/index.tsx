@@ -1,49 +1,27 @@
 import ButtonSucess from "../../components/Button/Success";
-// import api from "../../services/api";
+import { createGift } from "../../api/api";
 import React, { useState } from "react";
 import { PageRegister, FormCard, ButtonUpload } from "./styles";
-import ImageDefault from "../../assets/default-image.png";
 import { GiftItem } from "../../models/Gift";
 
-// import { UploadApiEndpoint } from "../../config";
-
 const Register = () => {
-  const [product, setProduct] = useState<GiftItem[]>({});
-  const [image, setImage] = useState();
+  const [product, setProduct] = useState<GiftItem[] | any>();
 
-  // const formData = new FormData();
-  // if (image) {
-  //   formData.append("img", image, image.name);
-  // }
-  // const submitForm = async (event) => {
-  //   event.preventDefault();
-
-  //   try {
-  //     await api.post("gift/create", product);
-  //     console.log(image);
-  //     await axios.post(UploadApiEndpoint, formData);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  // const loadFile = (event) => {
-  //   var reader = new FileReader();
-  //   reader.onload = function () {
-  //     var output = document.getElementById("output");
-  //     output.src = reader.result;
-  //   };
-  //   reader.readAsDataURL(event.target.files[0]);
-
-  //   const imagem = event.target.files[0];
-  //   setImage(imagem);
-  // };
+  const submitForm = async (event: any) => {
+    event.preventDefault();
+    console.log("passei");
+    try {
+      await createGift(product);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <PageRegister>
       <FormCard>
         <h1>Cadastre o seu presente</h1>
-        <form>
+        <form onSubmit={submitForm}>
           <div>
             <label>Nome do produto</label>
             <input
@@ -52,7 +30,6 @@ const Register = () => {
             />
             <label>Descrição</label>
             <textarea
-              type="text"
               onChange={(e) =>
                 setProduct({ ...product, Description: e.target.value })
               }
@@ -60,7 +37,7 @@ const Register = () => {
             <label> Valor</label>
             <input
               id="valor"
-              type="number"
+              type="text"
               onChange={(e) =>
                 setProduct({ ...product, Value: parseFloat(e.target.value) })
               }
@@ -77,21 +54,6 @@ const Register = () => {
               texto="Cadastrar e tentar a sorte =)"
               click={submitForm}
             />
-          </div>
-          <div>
-            <label>Imagem do produto</label>
-            <img alt="Imagem padrão" src={ImageDefault} id="output" />
-
-            {
-              <ButtonUpload>
-                Escolher imagem
-                <input
-                  type="file"
-                  className="upload"
-                  onChange={(event) => loadFile(event)}
-                />
-              </ButtonUpload>
-            }
           </div>
         </form>
       </FormCard>

@@ -6,7 +6,7 @@ export const Success = styled.div`
     border-radius: 5px;
 
     width: 180px;
-    height: 38px;
+    height: 48px;
 
     display: flex;
     align-items: center;
@@ -15,7 +15,7 @@ export const Success = styled.div`
     font-size: 12px;
     font-weight: 600;
 
-    background-color: #5dca46;
+    background-color: #4CAF50;
     color: #fff;
   }
 `;

@@ -17,18 +17,17 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
-  width: 100%;
+
   height: 100%;
+  width: 100%;
+
   flex-direction: column;
 
-  img {
-    max-width: 130px;
-    max-height: 130px;
+  padding: 10px;
 
-    margin: 0px 5px;
-  }
+  
 `;
 
 export const Text = styled.div`
@@ -38,7 +37,6 @@ export const Text = styled.div`
   flex-direction: column;
   height: 35%;
   display: flex;
-  padding: 0px 40px;
 
   h3 {
     padding-bottom: 10px;
@@ -62,7 +60,6 @@ export const Actions = styled.div`
 
   h2 {
     width: 100%;
-    padding: 10px 40px;
     text-align: left;
   }
   button {
@@ -75,7 +72,7 @@ export const Actions = styled.div`
     height: 40px;
 
     background: #ff499e;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 5px;
 
     color: white;
   }
@@ -84,4 +81,12 @@ export const Actions = styled.div`
 export const Image = styled.div`
   width: 100%;
   height: 40%;
+  
+
+
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
