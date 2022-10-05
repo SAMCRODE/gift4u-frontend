@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 export const PageRegister = styled.div`
-  background: url("../../assets/register-background.jpg") no-repeat;
-  height: 100vh;
-  background-size: cover;
-
   padding: 100px 0;
 
   display: flex;
@@ -15,7 +11,7 @@ export const PageRegister = styled.div`
 `;
 
 export const FormCard = styled.div`
-  width: 900px;
+  width: 480px;
   background: #ffffff;
   border: 1px solid #49b6ff;
 
@@ -26,11 +22,6 @@ export const FormCard = styled.div`
   padding: 30px;
 
   margin-bottom: 50px;
-  min-height: 400px;
-
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
 
   h1 {
     font-size: 24px;
@@ -38,48 +29,67 @@ export const FormCard = styled.div`
 
     color: #a480cf;
 
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 
   form {
     display: flex;
+
     div {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
 
-      font-size: 12px;
-      line-height: 14px;
+      font-size: 16px;
+      /* line-height: 14px; */
 
       color: #a480cf;
 
-      width: 50%;
+      width: 100%;
 
       label {
         font-weight: 600;
       }
 
       input {
+        margin-bottom: 15px;
+        height: 30px;
+
+        padding: 5px;
+
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        outline: none;
+
       }
 
       textarea {
         width: 100%;
         height: 80px;
+
+        resize: none;
+
+        padding: 5px;
+        margin-bottom: 15px;
+
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        outline: none;
       }
       img {
-        border: 1px solid #efefef;
+        border: 1px solid #E0E0E0;
         width: 220px;
         height: 220px;
       }
     }
-    div:nth-child(2) {
+    /* div:nth-child(2) {
       padding-left: 100px;
       display: flex;
       flex-direction: column;
 
       justify-content: space-between;
       align-items: flex-start;
-    }
+    } */
   }
 `;
 

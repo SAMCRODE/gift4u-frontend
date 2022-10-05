@@ -37,7 +37,12 @@ export const InstructionCard = styled.div`
   }
 
   ul {
-    padding-left: 40px;
+    list-style: square;
+
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   div {
