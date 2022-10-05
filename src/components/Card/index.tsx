@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ image, title, description, value, pixCode }
   <Container>
     <Content>
       <Image>
-        <img src={defaultImage} alt="produto" />
+        <img src={image ? image : defaultImage} alt="produto" />
       </Image>
       <Text>
         <h3>{title}</h3>

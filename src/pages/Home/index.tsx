@@ -41,7 +41,7 @@ const Home = () => {
             </li>
           ))}
         </ul>
-        <p>Loading...</p>
+        {/* <p>Loading...</p> */}
       </Container>
     </Page>
   );
